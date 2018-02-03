@@ -9,6 +9,8 @@ var allRolls = [
 [7,3],
 [10,false],
 [10,false],
+[10,false],
+[10,false],
 [1,4],
 [6,2],
 [7,3],
@@ -16,17 +18,19 @@ var allRolls = [
 ];
 
 let result = 0;
-async function jugada(rolls, index) {
+function jugada(rolls, index) {
 	if(index == allRolls.length-1){
 		if (rolls[0] == 10){
 			let semiresult = 10 + rolls[1]+rolls[2];
 			result = result + semiresult;
 			console.log('strike =', semiresult );
+			return semiresult;
 		}
 		else{
 			let semiresult = rolls[0]+rolls[1];
 			result = result + semiresult;
-		console.log('<<< o spare =', semiresult );
+			console.log('<<< o spare =', semiresult );
+			return semiresult;
 		}
 		
 	}
@@ -67,8 +71,9 @@ async function jugada(rolls, index) {
 }
 
 var finalResult = allRolls.map(function(rolls,index){
-   jugada(rolls,index);
 	console.log('result= ',result);
+	return jugada(rolls,index);
 })
-console.log(finalResult)
-
+console.log(finalResult);
+const finalScore = finalResult.reduce((a,b) => a + b, 0);
+console.log('Score = ', finalScore);
