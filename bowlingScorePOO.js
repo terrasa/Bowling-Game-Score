@@ -110,7 +110,7 @@ class Frame{
     }
 }
 
-/*const aCase1 = new Frame(allFrames,0)
+const aCase1 = new Frame(allFrames,0)
 const aCase2 = new Frame(allFrames,1)
 const aCase3 = new Frame(allFrames,2)
 const aCase4 = new Frame(allFrames,3)
@@ -132,7 +132,7 @@ console.log(aCase6.score());
 console.log(aCase7.score());
 console.log(aCase8.score());
 console.log(aCase9.score());
-console.log(aCase10.score());*/
+console.log(aCase10.score());
 
 var finalResult = allFrames.map(function(element,index){
 	const aCase = new Frame(allFrames,index)
